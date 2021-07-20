@@ -21,7 +21,7 @@ User.init(
         validate: {
         len: [4]
       }
-    }
+    },
     },
     {
     sequelize,
