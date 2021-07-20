@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS top_db;
+
+CREATE DATABASE top_db;
