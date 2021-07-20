@@ -22,32 +22,8 @@ User.init(
         len: [4]
       }
     },
-    // profilePic: { type: DataTypes.STRING, default: "/images/profilePic.png" },
-    // likes: [{ type: DataTypes.JSON, 
-    //         references: {
-    //             model: 'User',
-    //             key: 'id'
-    //         }}],
-    // following: [{ type: DataTypes.STRING, 
-    //             references: {
-    //                 model: "User",
-    //                 key: 'id'
-    //             }}],
-    // followers: [{ type: Object}]
-//   },
-//   {
-//     hooks: {
-//       // set up beforeCreate lifecycle "hook" functionality
-//       async beforeCreate(newUserData) {
-//         newUserData.password = await bcrypt.hash(newUserData.password, 10);
-//         return newUserData;
-//       },
-
-//       async beforeUpdate(updatedUserData) {
-//         updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-//         return updatedUserData;
-//       }
-//     },
+    },
+    {
     sequelize,
     timestamps: false,
     freezeTableName: true,

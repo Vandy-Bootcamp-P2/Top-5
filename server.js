@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const pug = require('pug');
-
+const middleware = require('./middleware');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -21,18 +21,32 @@ const sess = {
 
 app.use(session(sess));
 
-// const helpers = require('./utils/helpers');
 
-// const pugEngine = pug.create({ helpers });
+const loginRoute = require('./routes/loginRoutes');
+const registerRoute = require('./routes/registerRoutes');
 
 app.set('view engine', 'pug');
 app.set('views', 'views');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/public')));
 
-// app.use(require('./controllers/'));
+
+app.use('/login', loginRoute);
+app.use('/register', registerRoute);
+
+
+app.get('/', middleware.requireLogin, (req, res, next) => {
+
+    var payload = {
+        pageTitle: "Top 5",
+        userLoggedIn: req.session.user,
+        userLoggedInJs: JSON.stringify(req.session.user),
+    }
+
+    res.status(200).render('home', payload);
+})
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
