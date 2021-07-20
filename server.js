@@ -3,6 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const pug = require('pug');
 const middleware = require('./middleware');
+const withAuth = require('./utils/auth');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -11,12 +12,12 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
   secret: 'Congenial Waffle',
-  cookie: {},
-  resave: false,
-  saveUninitialized: true,
-  store: new SequelizeStore({
-    db: sequelize
-  })
+  // cookie: {},
+  resave: true,
+  saveUninitialized: false,
+  // store: new SequelizeStore({
+  //   db: sequelize
+  // })
 };
 
 app.use(session(sess));
@@ -24,6 +25,7 @@ app.use(session(sess));
 
 const loginRoute = require('./routes/loginRoutes');
 const registerRoute = require('./routes/registerRoutes');
+
 
 app.set('view engine', 'pug');
 app.set('views', 'views');
