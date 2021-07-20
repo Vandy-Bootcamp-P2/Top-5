@@ -1,29 +1,30 @@
 {
-  "name": "congenial-waffle",
+  "name": "Top-5",
   "version": "1.0.0",
-  "description": "## Description Discover whats in your top five! Create your own profile, make a top 5 list of your favorite based on your ownb personal choices, read other's lists, follow people, and connect!",
-  "main": "app.js",
+  "description": "Discover whats in your top five! Create your own profile, make a top 5 list of your favorite based on your ownb personal choices, read other's lists, follow people, and connect!",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jhurst16/congenial-waffle.git"
+    "url": "git+https://github.com/Vandy-Bootcamp-P2/Top-5.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jhurst16/congenial-waffle/issues"
+    "url": "https://github.com/Vandy-Bootcamp-P2/Top-5/issues"
   },
-  "homepage": "https://github.com/jhurst16/congenial-waffle#readme",
+  "homepage": "https://github.com/Vandy-Bootcamp-P2/Top-5#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
-    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
-    "mongodb": "^4.0.0",
-    "mongoose": "^5.13.2",
-    "pug": "^3.0.2"
+    "mysql2": "^2.2.5",
+    "pug": "^3.0.2",
+    "sequelize": "^6.6.5"
   }
 }
