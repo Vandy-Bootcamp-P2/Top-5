@@ -1,5 +1,5 @@
 {
-  "name": "Top-5",
+  "name": "top-5",
   "version": "1.0.0",
   "description": "Discover whats in your top five! Create your own profile, make a top 5 list of your favorite based on your ownb personal choices, read other's lists, follow people, and connect!",
   "main": "server.js",
