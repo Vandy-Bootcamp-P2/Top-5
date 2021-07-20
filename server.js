@@ -22,9 +22,11 @@ const sess = {
 
 app.use(session(sess));
 
-
+// Routes
 const loginRoute = require('./routes/loginRoutes');
 const registerRoute = require('./routes/registerRoutes');
+
+// API routes
 
 
 app.set('view engine', 'pug');
