@@ -2,10 +2,19 @@ extends layouts/main-layout.pug
 
 
 block content
-    +createPostForm(userLoggedIn)
-    .postsContainer
-    
-    //- +createPostModals(userLoggedIn)
-
-block scripts
-    script(src="/javascript/home.js") 
+    .card(style='width: 18rem;')
+        img.card-img-top(src='...' alt='Card image cap')
+        .card-body
+            h5.card-title Top 5 (Category)
+            p.card-text
+                | A place for a user to put a caption
+        ul.list-group.list-group-flush
+            li.list-group-item 1: (#1)
+            li.list-group-item 2: (#2)
+            li.list-group-item 3: (#3)
+            li.list-group-item 4: (#4)
+            li.list-group-item 5: (#5)
+        .card-body
+            a.card-link(href='https://www.youtube.com/watch?v=PjLw1E7tTuc') Link a Video or Whatever
+            a.card-link(href='https://www.allrecipes.com/recipe/22180/waffles-i/') And Maybe an Article
+            
