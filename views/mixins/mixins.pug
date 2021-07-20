@@ -2,6 +2,7 @@ mixin createPostForm(userLoggedIn)
     .postFormContainer
         .userImageContainer
             img(src=userLoggedIn.profilePic, alt="Profile Picture")
+            p @#{userLoggedIn.username}
         .textareaContainer
             .card(style='width: 18rem;')
                 img.card-img-top(src='/images/waffles.png' alt='Card image cap')
