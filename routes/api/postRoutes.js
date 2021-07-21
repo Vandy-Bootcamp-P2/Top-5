@@ -18,6 +18,8 @@ router.post('/', (req, res, next) => {
     }
 
     var postData = {
+        title: req.body.title,
+        caption: req.body.caption,
         field1: req.body.field1,
         field2: req.body.field2,
         field3: req.body.field3,
