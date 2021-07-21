@@ -11,13 +11,20 @@ Post.init(
       primaryKey: true, 
       autoIncrement: true 
     },
-      content: { 
-        type: DataTypes.STRING, 
-        allowNull: false 
+      field1: { 
+        type: DataTypes.STRING
       },
-      postedBy: { 
+      field2: { 
+        type: DataTypes.STRING
+      },
+      field3: { 
+        type: DataTypes.STRING
+      },
+      field4: { 
+        type: DataTypes.STRING
+      },
+      field5: { 
         type: DataTypes.STRING, 
-        allowNull: false, 
       },
       user_id: {
         type: DataTypes.INTEGER,
@@ -34,6 +41,5 @@ Post.init(
       modelName: 'post'
     }
   );
-
 
 module.exports = Post;

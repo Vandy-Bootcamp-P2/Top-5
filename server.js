@@ -26,9 +26,8 @@ app.use(session(sess));
 const loginRoute = require('./routes/loginRoutes');
 const registerRoute = require('./routes/registerRoutes');
 
-
 // API routes
-// const postRouteApi = require('./routes/api/postRoutes');
+const postRouteApi = require('./routes/api/postRoutes');
 
 app.set('view engine', 'pug');
 app.set('views', 'views');
@@ -41,7 +40,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.use('/login', loginRoute);
 app.use('/register', registerRoute);
 
-// app.use('/api/postRoutes', postRouteApi);
+app.use('/api/postRoutes', postRouteApi);
 
 
 

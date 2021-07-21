@@ -11,11 +11,11 @@ mixin createPostForm(userLoggedIn)
                     p.card-text
                         | A place for a user to put a caption
                 ul.list-group.list-group-flush
-                    textarea.form-control.z-depth-1(rows='1' placeholder='#1')
-                    textarea.form-control.z-depth-1(rows='1' placeholder='#2')
-                    textarea.form-control.z-depth-1(rows='1' placeholder='#3')
-                    textarea.form-control.z-depth-1(rows='1' placeholder='#4')
-                    textarea.form-control.z-depth-1(rows='1' placeholder='#5')
+                    textarea.form-control.z-depth-1#postField1(rows='1' placeholder='#1')
+                    textarea.form-control.z-depth-1#postField2(rows='1' placeholder='#2')
+                    textarea.form-control.z-depth-1#postField3(rows='1' placeholder='#3')
+                    textarea.form-control.z-depth-1#postField4(rows='1' placeholder='#4')
+                    textarea.form-control.z-depth-1#postField5(rows='1' placeholder='#5')
                 .card-body
-                    a.card-link(href='https://www.youtube.com/watch?v=PjLw1E7tTuc') Link a Video or Whatever
-        input.btn.btn-primary(type='submit' value='Submit')
+                    a.card-link(href='https://www.youtube.com/watch?v=PjLw1E7tTuc' target="_blank") Link a Video or Whatever
+        input.btn.btn-primary#submitPostButton(type='submit' value='Submit' disabled='')

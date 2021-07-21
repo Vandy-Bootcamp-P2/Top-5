@@ -1,0 +1,56 @@
+// enable submit button when use enters text
+$(".list-group").keyup(() => {
+    var postFieldAny = $(event.target);
+    var value = postFieldAny.val().trim();
+    
+    var submitButton = $("#submitPostButton");
+    if (value == "") {
+        submitButton.prop("disabled", true);
+        return;
+    }
+    submitButton.prop('disabled', false);
+});
+
+// send text in textfields to postRoutes when user clicks submit
+$("#submitPostButton").click(() => {
+    var button = $(event.target);
+
+    var postFieldAny = getPostFieldAny();
+    var postField1 = $("#postField1")
+    var postField2 = $("#postField2")
+    var postField3 = $("#postField3")
+    var postField4 = $("#postField4")
+    var postField5 = $("#postField5")
+
+    var data = {
+        field1: postField1.val(),
+        field2: postField2.val(),
+        field3: postField3.val(),
+        field4: postField4.val(),
+        field5: postField5.val(),
+        fieldAny: postFieldAny
+    }
+
+    $.post("/api/postRoutes", data, postData => {
+        var html = createPostHtml(postData);
+        $(".postsContainer").prepend(html);
+        postField1.val("");
+        postField2.val("");
+        postField3.val("");
+        postField4.val("");
+        postField5.val("");
+        button.prop("disabled", true);
+    })
+})
+
+function getPostFieldAny(event) {
+    $(".list-group").keyup(() => {
+        var postFieldAny = $(event.target);
+        var value = postFieldAny.val().trim();
+        return value;
+    })
+};
+
+function createPostHtml(postData) {
+    return `<div>wuut</div>`
+}
