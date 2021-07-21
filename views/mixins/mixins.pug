@@ -1,33 +1,30 @@
 mixin createPostForm(userLoggedIn)
     .postFormContainer
         .textareaContainer
-            .card.mb-3(style='max-width: 440px;')
-                .row.no-gutters
-                    .col-md-4
-                        img.card-img(src='/images/waffles.png' alt='Card image cap')
-                        .userImageContainer
-                            img(src=userLoggedIn.profilePic, alt="Profile Picture")
-                            p @#{userLoggedIn.username}
-                    .col-md-8  
-                        .card-body
-                            .md-form
-                                textarea#postCategory.md-textarea.form-control(rows='1' placeholder='"Waffles"')
-                                label(for='postCategory') Top 5: 
-                            .md-form
-                                textarea#postCaption.md-textarea.form-control(rows='1' placeholder='notes')
-                                label(for='postCategory')
-                            .list-group.list-group-flush
-                                .md-form
-                                    textarea#postField1.md-textarea.form-control(rows='1' placeholder='1st Place')
-                                    label(for='postField')
-                                    textarea#postField2.md-textarea.form-control(rows='1' placeholder='2nd Place')
-                                    label(for='postField')
-                                    textarea#postField3.md-textarea.form-control(rows='1' placeholder='3rd Place')
-                                    label(for='postField')
-                                    textarea#postField4.md-textarea.form-control(rows='1' placeholder='4th Place')
-                                    label(for='postField')
-                                    textarea#postField5.md-textarea.form-control(rows='1' placeholder='5th Place')
-                                    label(for='postField')
-                        .card-footer
-                            a.card-link(href='https://www.youtube.com/watch?v=PjLw1E7tTuc' target="_blank") Link a Video or Whatever
+            .card.mb-3(style='max-width: 400px;')
+                img.card-img-top(src='/images/waffles.png' alt='Card image cap')
+                .userImageContainer
+                    img(src=userLoggedIn.profilePic, alt="Profile Picture")
+                    p @#{userLoggedIn.username}
+                .card-body
+                    .md-form
+                        textarea#postCategory.md-textarea.form-control(rows='1' placeholder='"Waffles"')
+                        label(for='postCategory') Top 5: 
+                    .md-form
+                        textarea#postCaption.md-textarea.form-control(rows='1' placeholder='notes')
+                        label(for='postCategory')
+                    .list-group.list-group-flush
+                        .md-form
+                            textarea#postField1.md-textarea.form-control(rows='1' placeholder='1st Place')
+                            label(for='postField')
+                            textarea#postField2.md-textarea.form-control(rows='1' placeholder='2nd Place')
+                            label(for='postField')
+                            textarea#postField3.md-textarea.form-control(rows='1' placeholder='3rd Place')
+                            label(for='postField')
+                            textarea#postField4.md-textarea.form-control(rows='1' placeholder='4th Place')
+                            label(for='postField')
+                            textarea#postField5.md-textarea.form-control(rows='1' placeholder='5th Place')
+                            label(for='postField')
+                .card-footer
+                    a.card-link(href='https://www.youtube.com/watch?v=PjLw1E7tTuc' target="_blank") Link a Video or Whatever
         input.btn.btn-primary#submitPostButton(type='submit' value='Submit' disabled='')
