@@ -14,9 +14,8 @@ router.post('/', async (req, res, next) => {
         // validate logUsername and logPassword from form input at login.pug
         var user = await User.findOne({
             // use either username or password as valid login credential
-            $or: [
+            where: [
                 { username: req.body.logUsername },
-                { email: req.body.logUsername }
             ]
         })
         .catch((err) => {
