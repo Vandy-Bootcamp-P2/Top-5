@@ -11,6 +11,12 @@ Post.init(
       primaryKey: true, 
       autoIncrement: true 
     },
+      title: {
+        type: DataTypes.STRING
+    },
+      caption: {
+        type: DataTypes.STRING
+      },
       field1: { 
         type: DataTypes.STRING
       },

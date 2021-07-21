@@ -16,6 +16,8 @@ $("#submitPostButton").click(() => {
     var button = $(event.target);
 
     var postFieldAny = getPostFieldAny();
+    var postCategory = $("#postCategory")
+    var postCaption = $("#postCaption");
     var postField1 = $("#postField1")
     var postField2 = $("#postField2")
     var postField3 = $("#postField3")
@@ -23,6 +25,8 @@ $("#submitPostButton").click(() => {
     var postField5 = $("#postField5")
 
     var data = {
+        title: postCategory.val(),
+        caption: postCaption.val(),
         field1: postField1.val(),
         field2: postField2.val(),
         field3: postField3.val(),
@@ -34,6 +38,8 @@ $("#submitPostButton").click(() => {
     $.post("/api/postRoutes", data, postData => {
         var html = createPostHtml(postData);
         $(".postsContainer").prepend(html);
+        postCategory.val("");
+        postCaption.val("");
         postField1.val("");
         postField2.val("");
         postField3.val("");

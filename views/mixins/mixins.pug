@@ -7,9 +7,12 @@ mixin createPostForm(userLoggedIn)
             .card(style='width: 18rem;')
                 img.card-img-top(src='/images/waffles.png' alt='Card image cap')
                 .card-body
-                    h5.card-title Top 5 (Category)
-                    p.card-text
-                        | A place for a user to put a caption
+                    .md-form
+                        textarea#postCategory.md-textarea.form-control(rows='1' placeholder='"Waffles"')
+                        label(for='postCategory') Top 5: 
+                    .md-form
+                        textarea#postCaption.md-textarea.form-control(rows='1' placeholder='notes')
+                        label(for='postCategory')
                 ul.list-group.list-group-flush
                     textarea.form-control.z-depth-1#postField1(rows='1' placeholder='#1')
                     textarea.form-control.z-depth-1#postField2(rows='1' placeholder='#2')
