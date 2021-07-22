@@ -2,7 +2,7 @@
 $(".list-group").keyup(() => {
     var postFieldAny = $(event.target);
     var value = postFieldAny.val().trim();
-    
+
     var submitButton = $("#submitPostButton");
     if (value == "") {
         submitButton.prop("disabled", true);
