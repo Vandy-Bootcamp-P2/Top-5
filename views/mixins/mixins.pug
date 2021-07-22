@@ -1,22 +1,17 @@
 mixin createPostForm(userLoggedIn)
     .postFormContainer
         .textareaContainer
-            .card.mb-3(style='max-width: 440px;')
-                .row.no-gutters
-                    .col-md-4
+            .card
+                .card-body
+                    textarea#postCategory.md-textarea.form-control(rows='1' placeholder='"Waffles"')
+                .d-flex.justify-content-around
+                    label(for='postCategory') Top 5: 
+                    img(src=userLoggedIn.profilePic, alt="Profile Picture")
+                    p @#{userLoggedIn.username}
                         img.card-img(src='/images/waffles.png' alt='Card image cap')
-                        .userImageContainer
-                            img(src=userLoggedIn.profilePic, alt="Profile Picture")
-                            p @#{userLoggedIn.username}
-                    .col-md-8  
-                        .card-body
-                            .md-form
-                                textarea#postCategory.md-textarea.form-control(rows='1' placeholder='"Waffles"')
-                                label(for='postCategory') Top 5: 
-                            .md-form
-                                textarea#postCaption.md-textarea.form-control(rows='1' placeholder='notes')
+                .card-body
+                                textarea#postCaption.md-textarea.form-control(rows='1' placeholder='Write about your top picks here!')
                                 label(for='postCategory')
-                            .list-group.list-group-flush
                                 .md-form
                                     textarea#postField1.md-textarea.form-control(rows='1' placeholder='1st Place')
                                     label(for='postField')
@@ -28,6 +23,6 @@ mixin createPostForm(userLoggedIn)
                                     label(for='postField')
                                     textarea#postField5.md-textarea.form-control(rows='1' placeholder='5th Place')
                                     label(for='postField')
-                        .card-footer
+                .card-footer
                             a.card-link(href='https://www.youtube.com/watch?v=PjLw1E7tTuc' target="_blank") Link a Video or Whatever
         input.btn.btn-primary#submitPostButton(type='submit' value='Submit' disabled='')
