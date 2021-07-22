@@ -33,7 +33,9 @@ app.set('view engine', 'pug');
 app.set('views', 'views');
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({
+  extended: false
+}));
 app.use(express.static(path.join(__dirname, '/public')));
 
 
@@ -46,15 +48,17 @@ app.use('/api/postRoutes', postRouteApi);
 
 app.get('/', middleware.requireLogin, (req, res, next) => {
 
-    var payload = {
-        pageTitle: "Top 5",
-        userLoggedIn: req.session.user,
-        userLoggedInJs: JSON.stringify(req.session.user),
-    }
+  var payload = {
+    pageTitle: "Top 5",
+    userLoggedIn: req.session.user,
+    userLoggedInJs: JSON.stringify(req.session.user),
+  }
 
-    res.status(200).render('home', payload);
+  res.status(200).render('home', payload);
 })
 
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({
+  force: false
+}).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });

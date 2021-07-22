@@ -34,7 +34,7 @@ $("#submitPostButton").click(() => {
         field5: postField5.val(),
         fieldAny: postFieldAny
     }
-
+    //creating the top 5 list and inserting it into the html
     $.post("/api/postRoutes", data, postData => {
         var html = createPostHtml(postData);
         $(".postsContainer").prepend(html);
@@ -49,6 +49,12 @@ $("#submitPostButton").click(() => {
     })
 })
 
+$("#").click(() => {
+
+})
+
+
+//function to detect if there in input within the post
 function getPostFieldAny(event) {
     $(".list-group").keyup(() => {
         var postFieldAny = $(event.target);
@@ -57,6 +63,7 @@ function getPostFieldAny(event) {
     })
 };
 
+//will print the post to the screen
 function createPostHtml(postData) {
     return `<div>wuut</div>`
 }

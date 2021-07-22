@@ -48,7 +48,7 @@ User.init(
         validate: {
         len: [4]
       }
-    },
+    }
     },{
   //   hooks: {
   //     async createPW(newUserData) {
