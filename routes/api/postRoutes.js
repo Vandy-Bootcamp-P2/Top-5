@@ -39,5 +39,21 @@ router.post('/', (req, res, next) => {
     })
 })
 
+router.put('/:id/likes', async (req, res, next) => {
+    let postId = req.params.id;
+    let userId = req.session.user_id;
+
+    //true or false return based on if they have liked the post already or not
+    let isLiked = req.session.user.likes && req.session.user.likes.includes(postId);
+
+    //insert user like
+    User.findByIdAndUpdate(userId, `UPDATE TABLE user SET VALUE AS` )
+
+    //insert post like
+
+
+    res.status(200).send("ya work dude!!!")
+})
+
 
 module.exports = router;
