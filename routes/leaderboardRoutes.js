@@ -16,7 +16,9 @@ router.get('/', middleware.requireLogin, (req, res) => {
                 [Op.not]: '',
             }}
     }).then(function(posts) { 
-        console.log(posts);
+        for (i=0; i < posts.length; i++) {
+        console.log(posts[i].dataValues.posts);
+        }
      })
 
     res.render('leaderboard');
