@@ -152,7 +152,7 @@ function createPostHtml(postData) {
         <p class="card-text"></p>
         <div class="likes-section">
             <span class="likes>0 likes</span>
-            <button class="likeButton">:+1:</button
+            <button class="likeButton">Like +</button
         </div>
     </div>
   </div>`
