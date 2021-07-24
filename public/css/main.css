@@ -1,3 +1,7 @@
 textarea {
     resize: none;
 }
+
+.full-width {
+    width:100%;
+}
