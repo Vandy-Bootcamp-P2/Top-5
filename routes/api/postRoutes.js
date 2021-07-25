@@ -7,7 +7,9 @@ const User = require('../../models/User.js');
 const Post = require('../../models/Post.js');
 
 router.get('/', (req, res) => {
-    Post.findAll()
+    Post.findAll({
+        order: sequelize.literal('createdAt DESC')
+    })
     .then((results) => {
         res.status(200).send(results)
     })
