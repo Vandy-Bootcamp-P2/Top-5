@@ -89,3 +89,12 @@ function createPostHtml(postData) {
 
 `
 }
+
+function createLeaderboard(postData) {
+
+    return ` 
+                <a>${postData}</a>
+                <br>
+            
+    `   
+}

@@ -7,21 +7,7 @@ const { Op } = require("sequelize");
 
 
 router.get('/', middleware.requireLogin, (req, res) => {
-    Post.findAll({
-        attributes: [
-            [sequelize.fn('DISTINCT', sequelize.col('title')) , 'posts'],
-        ],
-        where: {
-            title: {
-                [Op.not]: '',
-            }}
-    }).then(function(posts) { 
-        for (i=0; i < posts.length; i++) {
-        console.log(posts[i].dataValues.posts);
-        }
-     })
-
-    res.render('leaderboard');
+    res.status(200).render('leaderboard', req.body);
 })
 
 module.exports = router;
