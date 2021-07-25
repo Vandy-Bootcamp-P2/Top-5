@@ -1,15 +1,15 @@
 $(document).ready(() => {
     $.get("/api/postRoutes", postData => {
-       outputLeaderboard(postData, $(".leaderboardContainer"))
+       outputLeaderboardCategory(postData, $(".leaderboardCategoryContainer"))
     })
 })
 
-function outputLeaderboard(results, container) {
+function outputLeaderboardCategory(results, container) {
     container.html("");
 
     results.forEach(result => {
         if (result.title != "")
-        var html = createLeaderboard(result);
+        var html = createLeaderboardCategory(result);
         container.append(html);
     })
 

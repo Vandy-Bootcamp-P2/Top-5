@@ -9,6 +9,7 @@ mixin createPostForm(userLoggedIn)
                     img(src=userLoggedIn.profilePic, alt="Profile Picture")
                     p @#{userLoggedIn.username}
                 .card-body
+                    .list-group.list-group-flush
                                 textarea#postCaption.md-textarea.form-control(rows='1' placeholder='Write about your top picks here!')
                                 label(for='postCategory')
                                 .md-form

@@ -10,4 +10,15 @@ router.get('/', middleware.requireLogin, (req, res) => {
     res.status(200).render('leaderboard', req.body);
 })
 
+router.get('/:title', middleware.requireLogin, async (req, res) => {
+    var leaderboardCategory = await Post.findAll({
+        where: {
+            title: req.params.title
+        }
+    })
+
+    res.status(200).render("leaderboardCategory", leaderboardCategory)
+})
+
+
 module.exports = router;

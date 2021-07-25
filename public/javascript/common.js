@@ -12,7 +12,7 @@ $(".list-group").keyup(() => {
 });
 
 // send text in textfields to postRoutes when user clicks submit
-$("#submitPostButton").click(() => {
+$("#submitPostButton").click((event) => {
     var button = $(event.target);
 
     var postFieldAny = getPostFieldAny();
@@ -93,7 +93,16 @@ function createPostHtml(postData) {
 function createLeaderboard(postData) {
 
     return ` 
-                <a>${postData}</a>
+                <a href="http://localhost:3001/leaderboard/${postData.title}">${postData.title}</a>
+                <br>
+            
+    `   
+}
+
+function createLeaderboardCategory(postData) {
+
+    return ` 
+                <p>${postData.title}</p>
                 <br>
             
     `   
