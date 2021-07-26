@@ -6,18 +6,18 @@ const Post = require('../models/Post.js');
 const { Op } = require("sequelize");
 
 
-router.get('/', middleware.requireLogin, (req, res) => {
-    res.status(200).render('leaderboard', req.body);
-})
-
-router.get('/:title', middleware.requireLogin, async (req, res) => {
-    var leaderboardCategory = await Post.findAll({
-        where: {
-            title: req.params.title
-        }
+router.get('/', middleware.requireLogin, async (req, res) => {
+        res.status(200).render('leaderboard', req.body)
     })
 
-    res.status(200).render("leaderboardCategory", leaderboardCategory)
+router.get('/:title', middleware.requireLogin, async (req, res) => {
+    var showFields = await Post.findAll({
+        where: { title: req.params.title },
+        attributes: {
+            include: ['field1', 'field2']
+        }
+    })
+    res.status(200).render("leaderboardCategory", showFields)
 })
 
 

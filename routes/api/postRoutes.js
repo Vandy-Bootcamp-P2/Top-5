@@ -48,6 +48,7 @@ router.post('/', (req, res, next) => {
     })
 })
 
+
 // router.put('/:id/likes', async (req, res, next) => {
 //     let postId = req.params.id;
 //     let userId = req.session.user_id;

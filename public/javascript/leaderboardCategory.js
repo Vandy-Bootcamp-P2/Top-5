@@ -1,5 +1,7 @@
+var urlParam = window.location.href.split('/').pop();
+
 $(document).ready(() => {
-    $.get("/api/postRoutes", postData => {
+    $.get("/api/leaderboardRoutes/" + urlParam, postData => {
        outputLeaderboardCategory(postData, $(".leaderboardCategoryContainer"))
     })
 })
