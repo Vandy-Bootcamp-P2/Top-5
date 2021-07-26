@@ -41,11 +41,10 @@ Post.init(
           key: 'id'
         }
       },
-      likes: {
+      likes_id: {
         type: DataTypes.INTEGER,
-        //autoIncrement: true,
         references: {
-          model:'user',
+          model:'likes',
           key:'id'
         }
       }
