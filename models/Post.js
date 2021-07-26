@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes, } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Post extends Model {}
@@ -14,9 +14,11 @@ Post.init(
       title: {
         type: DataTypes.STRING
     },
+    //user text of there post
       caption: {
         type: DataTypes.STRING
       },
+      //top 5 list for the post
       field1: { 
         type: DataTypes.STRING
       },
@@ -37,6 +39,14 @@ Post.init(
         references: {
           model: 'user',
           key: 'id'
+        }
+      },
+      likes: {
+        type: DataTypes.INTEGER,
+        //autoIncrement: true,
+        references: {
+          model:'user',
+          key:'id'
         }
       }
     },
