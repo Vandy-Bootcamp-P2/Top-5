@@ -118,7 +118,6 @@ function getPostFieldAny(event) {
 };
 //will print the post to the screen
 function createPostHtml(postData) {
-    console.log(postData)
     return `
     <div class="postFormContainer full-width">
         <div class="textareaContainer">
@@ -154,13 +153,11 @@ function createLeaderboard(postData) {
                 <br>
     `
 }
+
 function createLeaderboardCategory(result) {
     
     return ` 
-                <p>${result.field1}</p>
-                <p>${result.field2}</p>
-                <p>${result.field3}</p>
-                <p>${result.field4}</p>
-                <p>${result.field5}</p>
+                <p>${result}</p>
+
     `
 }
