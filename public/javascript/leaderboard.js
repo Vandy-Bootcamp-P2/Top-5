@@ -1,5 +1,5 @@
 $(document).ready(() => {
-    $.get("/api/postRoutes", postData => {
+    $.get("/api/leaderboardRoutes", postData => {
        outputLeaderboard(postData, $(".leaderboardContainer"))
     })
 })

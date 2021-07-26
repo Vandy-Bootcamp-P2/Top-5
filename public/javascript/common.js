@@ -32,6 +32,7 @@ $("#submitPostButton").click((event) => {
     }
     //creating the top 5 list and inserting it into the html
     $.post("/api/postRoutes", data, postData => {
+        console.log(data);
         var html = createPostHtml(postData);
         $(".postsContainer").prepend(html);
         postCategory.val("");
@@ -45,44 +46,44 @@ $("#submitPostButton").click((event) => {
     })
 })
 //function for clicking the like button, and getting the dynamic response
-document.addEventListener("DOMContentLoaded", function () {
-    fetch(`http://localhost3001`)
-        .then(response => response.json())
-        .then((postData) => {
-            addLikes(postData)
-        })
-})
-function addLikes(postData) {
-    const likesCounter = document.querySelector('.likes')
-    likesCounter.innerText - `${postData.likes} likes`
-    const likeButton = document.querySelector('.likeButton')
-    likeButton.innerText = incrementLikes(postData)
-}
-function incrementLikes(postData) {
-    //new variable for likes set to 0
-    let likes = 0
-    //insert a new end point if we end up taking the post to a new page!!--
-    //also might not be post.id, just plugging in for now till you guys have front end done, some changes may need to happen to line up everything!
-    fetch(`http://localhost3001/${postData.id}`)
-        .then(response => response.json())
-        .then((postData) => {
-            likes = postData.likes
-        })
-    //incrementing the likes for every time someone likes the post 
-    let newLikes = likes + 1
-    fetch(`http://localhost3001/`, {
-        method: 'PATCH',
-        headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json"
-        },
-        body: JSON.stringify({
-            "likes": newLikes
-        })
-    })
-    let likesText = `${newLikes} likes`
-    return likesText
-}
+// document.addEventListener("DOMContentLoaded", function () {
+//     fetch(`http://localhost3001`)
+//         .then(response => response.json())
+//         .then((postData) => {
+//             addLikes(postData)
+//         })
+// })
+// function addLikes(postData) {
+//     const likesCounter = document.querySelector('.likes')
+//     likesCounter.innerText - `${postData.likes} likes`
+//     const likeButton = document.querySelector('.likeButton')
+//     likeButton.innerText = incrementLikes(postData)
+// }
+// function incrementLikes(postData) {
+//     //new variable for likes set to 0
+//     let likes = 0
+//     //insert a new end point if we end up taking the post to a new page!!--
+//     //also might not be post.id, just plugging in for now till you guys have front end done, some changes may need to happen to line up everything!
+//     fetch(`http://localhost3001/${postData.id}`)
+//         .then(response => response.json())
+//         .then((postData) => {
+//             likes = postData.likes
+//         })
+//     //incrementing the likes for every time someone likes the post 
+//     let newLikes = likes + 1
+//     fetch(`http://localhost3001/`, {
+//         method: 'PATCH',
+//         headers: {
+//             "Content-Type": "application/json",
+//             Accept: "application/json"
+//         },
+//         body: JSON.stringify({
+//             "likes": newLikes
+//         })
+//     })
+//     let likesText = `${newLikes} likes`
+//     return likesText
+// }
 // $(document).on("click", ".likeButton", (event) => {
 //     var button = $(event.target);
 //     var postId = getPostIdFromElement(button);
@@ -125,7 +126,7 @@ function createPostHtml(postData) {
                     <p rows="1">${postData.title}</p>
                 </div>    
                 <div class="d-flex flex-column align-items-center">            
-                <p> @${userLoggedIn.username}</p>
+                <p> @${postData.user_id}</p>
                 <img src=${"/images/profilePic.png"} alt="Profile Picture", style="width:100px;height:100px;border-radius:50%;">
                 </div>
             <div class="card-body">
@@ -152,9 +153,11 @@ function createLeaderboard(postData) {
                 <br>
     `
 }
-function createLeaderboardCategory(postData) {
+
+function createLeaderboardCategory(result) {
+    
     return ` 
-                <p>${postData.title}</p>
-                <br>
+                <p>${result}</p>
+
     `
 }
