@@ -139,6 +139,8 @@ function createPostHtml(postData) {
                     <p id="postField3" rows="1">3: ${postData.field3}</p>
                     <p id="postField4" rows="1">4: ${postData.field4}</p>
                     <p id="postField5" rows="1">5: ${postData.field5}</p>
+                    <button class="likeButton" ${postData.likes} 👍>
+                    
                 </div>
             </div>
             <div class="card-footer">
