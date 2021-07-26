@@ -54,49 +54,49 @@ $("#submitPostButton").click((event) => {
 })
 
 //function for clicking the like button, and getting the dynamic response
-document.addEventListener("DOMContentLoaded", function() {
-    fetch(`http://localhost3001`)
-    .then(response => response.json())
-    .then((postData) => {
-        addLikes(postData)
-    })
-})
+// document.addEventListener("DOMContentLoaded", function() {
+//     fetch(`http://localhost3001`)
+//     .then(response => response.json())
+//     .then((postData) => {
+//         addLikes(postData)
+//     })
+// })
 
-function addLikes(postData){
-    const likesCounter = document.querySelector('.likes')
-    likesCounter.innerText - `${postData.likes} likes`
+// function addLikes(postData){
+//     const likesCounter = document.querySelector('.likes')
+//     likesCounter.innerText - `${postData.likes} likes`
 
-    const likeButton = document.querySelector('.likeButton')
+//     const likeButton = document.querySelector('.likeButton')
 
-    likeButton.innerText = incrementLikes(postData)
-}
+//     likeButton.innerText = incrementLikes(postData)
+// }
 
-function incrementLikes(postData) {
-    //new variable for likes set to 0
-    let likes = 0
-    //insert a new end point if we end up taking the post to a new page!!--
-    //also might not be post.id, just plugging in for now till you guys have front end done, some changes may need to happen to line up everything!
-    fetch(`http://localhost3001/${postData.id}`)
-    .then(response => response.json())
-    .then((postData) => {
-        likes = postData.likes
-    })
-//incrementing the likes for every time someone likes the post 
-    let newLikes = likes + 1
+// function incrementLikes(postData) {
+//     //new variable for likes set to 0
+//     let likes = 0
+//     //insert a new end point if we end up taking the post to a new page!!--
+//     //also might not be post.id, just plugging in for now till you guys have front end done, some changes may need to happen to line up everything!
+//     fetch(`http://localhost3001/${postData.id}`)
+//     .then(response => response.json())
+//     .then((postData) => {
+//         likes = postData.likes
+//     })
+// //incrementing the likes for every time someone likes the post 
+//     let newLikes = likes + 1
 
-    fetch(`http://localhost3001/`, {
-        method: 'PATCH',
-        headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json"
-        },
-        body: JSON.stringify({
-            "likes": newLikes
-        })
-    })
-    let likesText = `${newLikes} likes`
-    return likesText
-}
+//     fetch(`http://localhost3001/`, {
+//         method: 'PATCH',
+//         headers: {
+//             "Content-Type": "application/json",
+//             Accept: "application/json"
+//         },
+//         body: JSON.stringify({
+//             "likes": newLikes
+//         })
+//     })
+//     let likesText = `${newLikes} likes`
+//     return likesText
+// }
 
 
 // $(document).on("click", ".likeButton", (event) => {
@@ -128,6 +128,9 @@ function incrementLikes(postData) {
 
 //     return postId;
 // }
+
+//comments section
+
 
 
 //function to detect if there in input within the post
