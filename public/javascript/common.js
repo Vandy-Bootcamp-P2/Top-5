@@ -152,10 +152,13 @@ function createLeaderboard(postData) {
                 <br>
     `
 }
-function createLeaderboardCategory(postData) {
-        console.log(postData);
+function createLeaderboardCategory(result) {
+    
     return ` 
-                <p>${postData.field1}</p>
-                <br>
+                <p>${result.field1}</p>
+                <p>${result.field2}</p>
+                <p>${result.field3}</p>
+                <p>${result.field4}</p>
+                <p>${result.field5}</p>
     `
 }

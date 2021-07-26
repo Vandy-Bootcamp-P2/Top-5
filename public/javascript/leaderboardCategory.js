@@ -7,12 +7,13 @@ $(document).ready(() => {
 })
 
 function outputLeaderboardCategory(results, container) {
-    container.html("");
+    container.html(`<h1>Top ${results[0].title}</h1>`);
 
     results.forEach(result => {
-        if (result.title != "")
-        var html = createLeaderboardCategory(result);
-        container.append(html);
+        if (result.title != "") {
+            var html = createLeaderboardCategory(result);
+            container.append(html);
+        }   
     })
 
     if (results.length == 0) {

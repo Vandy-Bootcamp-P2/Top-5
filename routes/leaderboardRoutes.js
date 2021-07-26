@@ -11,13 +11,7 @@ router.get('/', middleware.requireLogin, async (req, res) => {
     })
 
 router.get('/:title', middleware.requireLogin, async (req, res) => {
-    var showFields = await Post.findAll({
-        where: { title: req.params.title },
-        attributes: {
-            include: ['field1', 'field2']
-        }
-    })
-    res.status(200).render("leaderboardCategory", showFields)
+    res.status(200).render("leaderboardCategory", req.body)
 })
 
 

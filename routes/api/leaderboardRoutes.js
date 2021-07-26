@@ -17,12 +17,9 @@ router.get('/', middleware.requireLogin, async (req, res) => {
 
 router.get('/:title', middleware.requireLogin, (req, res) => {
     Post.findAll({
-        where: { title: req.params.title },
-        attributes: {
-            include: ['field1', 'field2', 'field3']
-        }
+        where: { title: req.params.title }
     }).then((results) => {
-        res.status(200).send(results);
+        res.status(200).send(results)
     })
 })
 
