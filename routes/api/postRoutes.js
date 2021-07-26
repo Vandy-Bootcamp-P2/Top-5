@@ -3,11 +3,7 @@ const router = express.Router();
 const sequelize = require('../../config/connection');
 const middleware = require('../../middleware');
 
-const User = require('../../models/User.js');
-const Post = require('../../models/Post.js');
-const {
-    Likes
-} = require('../../models');
+const { Post, User, Comment, Likes} = require('../../models');
 
 router.get('/', (req, res) => {
     Post.findAll({
