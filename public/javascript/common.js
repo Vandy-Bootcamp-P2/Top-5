@@ -58,7 +58,7 @@ function getPostFieldAny(event) {
 };
 
 function createPostHtml(postData) {
-     
+
     return `
     <div class="postFormContainer">
     <div class="textareaContainer">
@@ -96,7 +96,7 @@ function createLeaderboard(postData) {
                 <a href="http://localhost:3001/leaderboard/${postData.title}">${postData.title}</a>
                 <br>
             
-    `   
+    `
 }
 
 function createLeaderboardCategory(postData) {
@@ -105,5 +105,5 @@ function createLeaderboardCategory(postData) {
                 <p>${postData.title}</p>
                 <br>
             
-    `   
+    `
 }

@@ -1,8 +1,9 @@
 extends layouts/login-layout.pug
 
 block content
-    .loginContainer 
+    .loginContainer.d-flex.flex-column.align-items-center
         h1 Login
+        a(href="/register") Create New Account
         form(method="post")
 
             p.errorMessage #{errorMessage}
