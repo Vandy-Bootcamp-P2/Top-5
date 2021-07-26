@@ -24,6 +24,7 @@ app.use(session(sess));
 
 // Routes
 const loginRoute = require('./routes/loginRoutes');
+const logoutRoute = require('./routes/logoutRoutes');
 const registerRoute = require('./routes/registerRoutes');
 const leaderboardRoute = require('./routes/leaderboardRoutes');
 
@@ -39,6 +40,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 
 app.use('/login', loginRoute);
+app.use('/logout', logoutRoute);
 app.use('/register', registerRoute);
 app.use('/leaderboard', leaderboardRoute);
 
