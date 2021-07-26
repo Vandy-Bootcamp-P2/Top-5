@@ -5,3 +5,7 @@ textarea {
 .full-width {
     width:100%;
 }
+
+.profile-pic{
+    size:200px 200px;
+}

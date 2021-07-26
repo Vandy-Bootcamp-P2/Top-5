@@ -118,16 +118,16 @@ function getPostFieldAny(event) {
 //will print the post to the screen
 function createPostHtml(postData) {
     return `
-    <div class="postFormContainer">
-    <div class="textareaContainer">
-        <div class="card">
-            <div class="card-body">
-                <p rows="1">${postData.title}</p>
-            </div>
-            <div class="d-flex justify-content-around">
-                <img src=${userLoggedIn.profilePic} alt="Profile Picture">
+    <div class="postFormContainer full-width">
+        <div class="textareaContainer">
+            <div class="card">
+                <div class="card-body">
+                    <p rows="1">${postData.title}</p>
+                </div>    
+                <div class="d-flex flex-column align-items-center">            
                 <p> @${userLoggedIn.username}</p>
-            </div>
+                <img src=${"/images/profilePic.png"} alt="Profile Picture", style="width:100px;height:100px;border-radius:50%;">
+                </div>
             <div class="card-body">
                 <p id="postCaption" rows="1">${postData.caption}</p>
                 <div class="md-form">
