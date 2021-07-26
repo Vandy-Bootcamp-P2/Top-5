@@ -1,6 +1,7 @@
 extends layouts/login-layout.pug
 
 block content
+<<<<<<< HEAD
     .loginContainer 
         h1 Login
         form(method="post")
@@ -11,3 +12,23 @@ block content
             input(type="password", name="logPassword", placeholder="Password", required="")
             input(type="submit", value="Login")
         a(href="/register") Need an account? Register here. 
+=======
+    .container.mainPadding
+        .row.justify-content-evenly
+            .col-md-6.login-form-1
+                h1 TOP 5
+                h4 This app lets people vote on "top 5" lists YOU make!
+            .col-md-6.login-form-2
+                h1 Login
+                form(method="post")
+                    .form-group
+                        input.form-control(type="text", name="logUsername", placeholder="Username or email", value=logUsername required="")
+                    .form-group
+                        input.form-control(type="password", name="logPassword", placeholder="Password", required="")
+                    .form-group
+                        input.btnSubmit(type="submit", value="Login")
+                    .form-group
+                        a.ForgetPwd(href="/register") Need an account?
+                h4.errorMessage #{errorMessage}
+                
+>>>>>>> develop

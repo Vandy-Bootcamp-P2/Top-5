@@ -23,7 +23,6 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res, next) => {
-    console.log(req.body);
     if (!req.body) {
         console.log("no content in request");
         return res.sendStatus(400);
@@ -40,6 +39,7 @@ router.post('/', (req, res, next) => {
         user_id: req.session.user.id
     }
 
+    console.log(postData)
 
     Post.create(postData)
         .then(newPost => {
@@ -51,10 +51,27 @@ router.post('/', (req, res, next) => {
         })
 })
 
+<<<<<<< HEAD
 //creating the like route
 router.put('/likes', (res, req) => {
     res.send('ellloooo amigo')
 })
+=======
+
+// router.put('/:id/likes', async (req, res, next) => {
+//     let postId = req.params.id;
+//     let userId = req.session.user_id;
+
+//     //true or false return based on if they have liked the post already or not
+//     let isLiked = req.session.user.likes && req.session.user.likes.includes(postId);
+
+//     //let option = isLiked ?
+
+//     //insert user like
+//     User.findBy(likes, `UPDATE TABLE user SET likes VALUE AS ?` )
+
+//     //insert post like
+>>>>>>> develop
 
 
 
