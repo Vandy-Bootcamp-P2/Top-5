@@ -60,7 +60,7 @@ app.get('/', middleware.requireLogin, (req, res, next) => {
 })
 
 sequelize.sync({
-  force: false
+  force: true
 }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });

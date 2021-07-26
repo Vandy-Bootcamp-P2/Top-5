@@ -144,7 +144,6 @@ function getPostFieldAny(event) {
 
 //will print the post to the screen
 function createPostHtml(postData) {
-<<<<<<< HEAD
     return `<div class="card" style="width: 18rem;">
     <img src="" class="card-img-top" alt="...">
     <div class="card-body" data-id="">
@@ -160,54 +159,4 @@ function createPostHtml(postData) {
         </div>
     </div>
   </div>`
-=======
-     
-    return `
-    <div class="postFormContainer">
-    <div class="textareaContainer">
-        <div class="card">
-            <div class="card-body">
-                <p rows="1">${postData.title}</p>
-            </div>
-            <div class="d-flex justify-content-around">
-                <img src=${userLoggedIn.profilePic} alt="Profile Picture">
-                <p> @${userLoggedIn.username}</p>
-            </div>
-            <div class="card-body">
-                <p id="postCaption" rows="1">${postData.caption}</p>
-                <div class="md-form">
-                    <p id="postField1" rows="1">1: ${postData.field1}</p>
-                    <p id="postField2" rows="1">2: ${postData.field2}</p>
-                    <p id="postField3" rows="1">3: ${postData.field3}</p>
-                    <p id="postField4" rows="1">4: ${postData.field4}</p>
-                    <p id="postField5" rows="1">5: ${postData.field5}</p>
-                </div>
-            </div>
-            <div class="card-footer">
-                <a class="card-link" href="https://www.youtube.com/watch?v=PjLw1E7tTuc" target="_blank">Link To Video</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-`
-}
-
-function createLeaderboard(postData) {
-
-    return ` 
-                <a href="http://localhost:3001/leaderboard/${postData.title}">${postData.title}</a>
-                <br>
-            
-    `   
-}
-
-function createLeaderboardCategory(postData) {
-
-    return ` 
-                <p>${postData.title}</p>
-                <br>
-            
-    `   
->>>>>>> f36e66650cb69acf8f6efd27160b1f08e6d08ffd
 }
