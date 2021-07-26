@@ -48,14 +48,6 @@ User.init(
         validate: {
         len: [4]
       }
-    },
-    likes: {
-      type: DataTypes.INTEGER,
-      //autoIncrement: true,
-      references: {
-        model:'user',
-        key:'id'
-      }
     }
     },{
   //   hooks: {

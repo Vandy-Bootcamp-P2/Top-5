@@ -5,18 +5,21 @@ const middleware = require('../../middleware');
 
 const User = require('../../models/User.js');
 const Post = require('../../models/Post.js');
+const {
+    Likes
+} = require('../../models');
 
 router.get('/', (req, res) => {
     Post.findAll({
-        order: sequelize.literal('createdAt DESC')
-    })
-    .then((results) => {
-        res.status(200).send(results)
-    })
-    .catch(err => {
-        console.log(err);
-        res.sendStatus(500);
-    })
+            order: sequelize.literal('createdAt DESC')
+        })
+        .then((results) => {
+            res.status(200).send(results)
+        })
+        .catch(err => {
+            console.log(err);
+            res.sendStatus(500);
+        })
 })
 
 router.post('/', (req, res, next) => {
@@ -39,27 +42,43 @@ router.post('/', (req, res, next) => {
 
 
     Post.create(postData)
-    .then(newPost => {
-        res.status(200).send(newPost);
-    })
-    .catch(err => {
-        console.log(err);
-        res.sendStatus(500);
+        .then(newPost => {
+            res.status(200).send(newPost);
+        })
+        .catch(err => {
+            console.log(err);
+            res.sendStatus(500);
+        })
+})
+
+//PUT route for for likes
+router.put('/likes', (req, res) => {
+    //creating the like!
+    Likes.create({
+        user_id: req.body.user_i,
+        post_id: req.body.post_id
+    }).then(() => {
+        // then find the post we just voted on
+        return Post.findOne({
+                where: {
+                    id: req.body.post_id
+                },
+                attributes: [
+                    'id',
+                    'post_url',
+                    'title',
+                    'created_at',
+                    [
+                        sequelize.literal('(SELECT COUNT(*) FROM likes WHERE post.id = likes.post_id)'),
+                        'like_count'
+                    ]
+                ]
+            })
+            .then(dbPostData => res.json(dbPostData))
+            .catch(err => res.json('we got  PUT ERROR', err))
     })
 })
 
-router.put('/likes', async (req, res) => {
-     // make sure the session exists first
-  if (req.session) {
-    // pass session id along with all destructured properties on req.body
-    Post.likes({ ...req.body, user_id: req.session.user_id }, { Post, Comment, User })
-      .then(updatedLikeData => res.json(updatedLikeData))
-      .catch(err => {
-        console.log('hey man you made a mistake in router', err);
-        res.status(500).json(err);
-      });
-  }
-})
 
 
 module.exports = router;
