@@ -32,6 +32,7 @@ $("#submitPostButton").click((event) => {
     }
     //creating the top 5 list and inserting it into the html
     $.post("/api/postRoutes", data, postData => {
+        console.log(data);
         var html = createPostHtml(postData);
         $(".postsContainer").prepend(html);
         postCategory.val("");
@@ -117,6 +118,7 @@ function getPostFieldAny(event) {
 };
 //will print the post to the screen
 function createPostHtml(postData) {
+    console.log(postData)
     return `
     <div class="postFormContainer full-width">
         <div class="textareaContainer">
@@ -125,7 +127,7 @@ function createPostHtml(postData) {
                     <p rows="1">${postData.title}</p>
                 </div>    
                 <div class="d-flex flex-column align-items-center">            
-                <p> @${userLoggedIn.username}</p>
+                <p> @${postData.user_id}</p>
                 <img src=${"/images/profilePic.png"} alt="Profile Picture", style="width:100px;height:100px;border-radius:50%;">
                 </div>
             <div class="card-body">

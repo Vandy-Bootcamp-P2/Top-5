@@ -20,7 +20,6 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res, next) => {
-    console.log(req.body);
     if (!req.body) {
         console.log("no content in request");
         return res.sendStatus(400);
@@ -37,6 +36,7 @@ router.post('/', (req, res, next) => {
         user_id: req.session.user.id
     }
 
+    console.log(postData)
 
     Post.create(postData)
     .then(newPost => {
