@@ -48,23 +48,18 @@ router.post('/', (req, res, next) => {
     })
 })
 
-// router.put('/:id/likes', async (req, res, next) => {
-//     let postId = req.params.id;
-//     let userId = req.session.user_id;
-
-//     //true or false return based on if they have liked the post already or not
-//     let isLiked = req.session.user.likes && req.session.user.likes.includes(postId);
-
-//     //let option = isLiked ?
-
-//     //insert user like
-//     User.findBy(likes, `UPDATE TABLE user SET likes VALUE AS ?` )
-
-//     //insert post like
-
-
-//     res.status(200).send("ya work dude!!!")
-// })
+router.put('/likes', async (req, res) => {
+     // make sure the session exists first
+  if (req.session) {
+    // pass session id along with all destructured properties on req.body
+    Post.likes({ ...req.body, user_id: req.session.user_id }, { Post, Comment, User })
+      .then(updatedLikeData => res.json(updatedLikeData))
+      .catch(err => {
+        console.log('hey man you made a mistake in router', err);
+        res.status(500).json(err);
+      });
+  }
+})
 
 
 module.exports = router;
