@@ -1,18 +1,6 @@
 extends layouts/login-layout.pug
 
 block content
-<<<<<<< HEAD
-    .loginContainer 
-        h1 Login
-        form(method="post")
-
-            p.errorMessage #{errorMessage}
-
-            input(type="text", name="logUsername", placeholder="Username or email", value=logUsername required="")
-            input(type="password", name="logPassword", placeholder="Password", required="")
-            input(type="submit", value="Login")
-        a(href="/register") Need an account? Register here. 
-=======
     .container.mainPadding
         .row.justify-content-evenly
             .col-md-6.login-form-1
@@ -31,4 +19,3 @@ block content
                         a.ForgetPwd(href="/register") Need an account?
                 h4.errorMessage #{errorMessage}
                 
->>>>>>> develop

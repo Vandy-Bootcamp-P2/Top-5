@@ -51,29 +51,26 @@ router.post('/', (req, res, next) => {
         })
 })
 
-<<<<<<< HEAD
-//creating the like route
-router.put('/likes', (res, req) => {
-    res.send('ellloooo amigo')
-})
-=======
-
-// router.put('/:id/likes', async (req, res, next) => {
-//     let postId = req.params.id;
-//     let userId = req.session.user_id;
-
-//     //true or false return based on if they have liked the post already or not
-//     let isLiked = req.session.user.likes && req.session.user.likes.includes(postId);
-
-//     //let option = isLiked ?
-
-//     //insert user like
-//     User.findBy(likes, `UPDATE TABLE user SET likes VALUE AS ?` )
-
-//     //insert post like
->>>>>>> develop
-
-
-
+//delete a post
+router.delete('/:id', (req, res) => {
+    Post.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(postData => {
+            if (!postData) {
+                res.status(404).json({
+                    message: 'No post found with this id'
+                });
+                return;
+            }
+            res.json(postData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
 
 module.exports = router;
