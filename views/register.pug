@@ -1,20 +1,58 @@
 extends layouts/login-layout.pug
 
 block content
-    .loginContainer 
-        h1 Register
-        form#registerForm(method="post", onSubmit="event.preventDefault(); validateForm();")
+    .loginContainer
+        br
+        p.text-center
+        hr
+        .card.bg-light
+            article.card-body.mx-auto(style='max-width: 400px;')
+                h4.card-title.mt-3.text-center Create Account
+                p.text-center Get started with your free account
+                p.divider-text
+                    span.bg-light OR
+                form#registerForm(method="post", onSubmit="event.preventDefault(); validateForm();")
+                    .form-group.input-group
+                        .input-group-prepend
+                            span.input-group-text
+                                i.fa.fa-user
+                        input.form-control(type="text", name="firstName", placeholder="First Name", value=firstName required="")
+                    // form-group//
+                    .form-group.input-group
+                        .input-group-prepend
+                            span.input-group-text
+                                i.fa.fa-user
+                        input.form-control(type="text", name="lastName", placeholder="Last Name", value=lastName required="")
+                    // form-group//
+                    .form-group.input-group
+                        .input-group-prepend
+                            span.input-group-text
+                                i.fa.fa-user
+                        input.form-control(type="text", name="username", placeholder="Username", value=username required="")
+                    // form-group//
+                    .form-group.input-group
+                        .input-group-prepend
+                            span.input-group-text
+                                i.fa.fa-user
+                        input.form-control(type="email", name="email", placeholder="Email", value=email required="")
+                    // form-group end.//
+                    .form-group.input-group
+                        .input-group-prepend
+                            span.input-group-text
+                                i.fa.fa-lock
+                        input#password.form-control(type="password", name="password", placeholder="Password", required="")
+                    // form-group//
+                    .form-group.input-group
+                        .input-group-prepend
+                            span.input-group-text
+                                i.fa.fa-lock
+                        input#passwordConfirm.form-control(type="password", name="passwordConfirm", placeholder="Confirm Password", required="")
+                    // form-group//
+                    p.text-center
+                        | Have an account? 
+                        input(type="submit", value="Login")
 
             p.errorMessage #{errorMessage}
-
-            input(type="text", name="firstName", placeholder="First Name", value=firstName required="")
-            input(type="text", name="lastName", placeholder="Last Name", value=lastName required="")
-            input(type="text", name="username", placeholder="Username", value=username required="")
-            input(type="email", name="email", placeholder="Email", value=email required="")
-            input#password(type="password", name="password", placeholder="Password", required="")
-            input#passwordConfirm(type="password", name="passwordConfirm", placeholder="Confirm Password", required="")
-            input(type="submit", value="Login")
-        a(href="/login") Already have an account? Login here.
 
     script.
         var passwordField = document.getElementById("password");
