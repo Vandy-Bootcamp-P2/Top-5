@@ -1,6 +1,3 @@
-const { response } = require("express");
-const { increment } = require("../../models/User");
-const { post } = require("../../routes/api/postRoutes");
 // enable submit button when use enters text
 $(".list-group").keyup(() => {
     var postFieldAny = $(event.target);
