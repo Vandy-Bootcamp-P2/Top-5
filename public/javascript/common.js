@@ -148,7 +148,7 @@ function createPostHtml(postData) {
 }
 function createLeaderboard(postData) {
     return ` 
-                <a href="https://localhost:3001/leaderboard/${postData.title}">${postData.title}</a>
+                <a href="http://localhost:3001/leaderboard/${postData.title}">${postData.title}</a>
                 <br>
     `
 }
