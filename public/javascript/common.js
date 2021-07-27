@@ -141,9 +141,6 @@ function createPostHtml(postData) {
                     <p id="postField5" rows="1">5: ${postData.field5}</p>
                 </div>
             </div>
-            <div class="card-footer">
-                <a class="card-link" href="https://www.youtube.com/watch?v=PjLw1E7tTuc" target="_blank">Link To Video</a>
-            </div>
         </div>
     </div>
 </div>
@@ -151,7 +148,7 @@ function createPostHtml(postData) {
 }
 function createLeaderboard(postData) {
     return ` 
-                <a href="https://top-5-list.herokuapp.com/leaderboard/${postData.title}">${postData.title}</a>
+                <a href="https://localhost:3001/leaderboard/${postData.title}">${postData.title}</a>
                 <br>
     `
 }
