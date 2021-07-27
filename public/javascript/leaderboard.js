@@ -1,6 +1,6 @@
 $(document).ready(() => {
     $.get("/api/leaderboardRoutes", postData => {
-       outputLeaderboard(postData, $(".leaderboardContainer"))
+        outputLeaderboard(postData, $(".leaderboardContainer"))
     })
 })
 
@@ -9,7 +9,7 @@ function outputLeaderboard(results, container) {
 
     results.forEach(result => {
         if (result.title != "")
-        var html = createLeaderboard(result);
+            var html = createLeaderboard(result);
         container.append(html);
     })
 

@@ -24,10 +24,18 @@
     background-color: #405D9D;
     color: #fff;
 }
+
 .btn-twitter {
     background-color: #42AEEC;
     color: #fff;
 }
+
+.btn-leaderboard {
+    color: #0062cc;
+    background-color:#fff ;
+}
+
+
 
 .btnSubmit {
     font-weight: 400;

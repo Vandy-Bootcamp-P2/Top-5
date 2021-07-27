@@ -146,10 +146,12 @@ function createPostHtml(postData) {
 </div>
 `
 }
+
 function createLeaderboard(postData) {
     return ` 
-                <a href="http://localhost:3001/leaderboard/${postData.title}">${postData.title}</a>
-                <br>
+        <div class="d-grid gap-2 col-6 mx-auto d-flex flex-column justify-content-center">
+            <a href="http://localhost:3001/leaderboard/${postData.title}" type="button" class="btn btn-outline-primary">${postData.title}</a>
+        </div>
     `
 }
 

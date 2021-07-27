@@ -1,4 +1,5 @@
 var urlParam = window.location.href.split('/').pop();
+urlParam = decodeURIComponent(urlParam)
 
 $(document).ready(() => {
     $.get("/api/leaderboardRoutes/" + urlParam, postData => {
