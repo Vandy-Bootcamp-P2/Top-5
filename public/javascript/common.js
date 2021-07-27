@@ -33,16 +33,17 @@ $("#submitPostButton").click((event) => {
     //creating the top 5 list and inserting it into the html
     $.post("/api/postRoutes", data, postData => {
         console.log(data);
-        var html = createPostHtml(postData);
-        $(".postsContainer").prepend(html);
-        postCategory.val("");
-        postCaption.val("");
-        postField1.val("");
-        postField2.val("");
-        postField3.val("");
-        postField4.val("");
-        postField5.val("");
-        button.prop("disabled", true);
+        // var html = createPostHtml(postData);
+        // $(".postsContainer").prepend(html);
+        // postCategory.val("");
+        // postCaption.val("");
+        // postField1.val("");
+        // postField2.val("");
+        // postField3.val("");
+        // postField4.val("");
+        // postField5.val("");
+        // button.prop("disabled", true);
+        location.reload()
     })
 })
 //function for clicking the like button, and getting the dynamic response
