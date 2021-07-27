@@ -151,7 +151,7 @@ function createPostHtml(postData) {
 }
 function createLeaderboard(postData) {
     return ` 
-                <a href="http://localhost:3001/leaderboard/${postData.title}">${postData.title}</a>
+                <a href="https://top-5-list.herokuapp.com//${postData.title}">${postData.title}</a>
                 <br>
     `
 }
