@@ -118,6 +118,7 @@ function getPostFieldAny(event) {
 };
 //will print the post to the screen
 function createPostHtml(postData) {
+    console.log(postData)
     return `
     <div class="postFormContainer full-width">
         <div class="textareaContainer">
@@ -126,7 +127,7 @@ function createPostHtml(postData) {
                     <p rows="1">${postData.title}</p>
                 </div>    
                 <div class="d-flex flex-column align-items-center">            
-                <p> @${postData.user_id}</p>
+                <p> @${postData.user.username}</p>
                 <img src=${"/images/profilePic.png"} alt="Profile Picture", style="width:100px;height:100px;border-radius:50%;">
                 </div>
             <div class="card-body">
@@ -155,7 +156,7 @@ function createLeaderboard(postData) {
 }
 
 function createLeaderboardCategory(result) {
-    
+
     return ` 
                 <p>${result}</p>
 
