@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res, next) => {
 
-    if(req.body.logUsername && req.body.logPassword) {
+    if (req.body.logUsername && req.body.logPassword) {
         // validate logUsername and logPassword from form input at login.pug
         var user = await User.findOne({
             // use either username or password as valid login credential
@@ -18,19 +18,19 @@ router.post('/', async (req, res, next) => {
                 { username: req.body.logUsername },
             ]
         })
-        .catch((err) => {
-            console.log(err);
-        });
+            .catch((err) => {
+                console.log(err);
+            });
         // username or email is valid, check password
         if (user != null) {
             // compares user's normal password with the encrypted version in database
             var result = await bcrypt.compare(req.body.logPassword, user.password);
-                // if successful, start session, redirect to homepage
-                if(result === true) {
-                    // password passed
-                    req.session.user = user;
-                    return res.redirect('/');
-                }       
+            // if successful, start session, redirect to homepage
+            if (result === true) {
+                // password passed
+                req.session.user = user;
+                return res.redirect('/');
+            }
         }
         // else user == null (user not found)
         req.body.errorMessage = "Login credentials incorrect";
