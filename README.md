@@ -1,7 +1,7 @@
-# Top Five!
+# Top-5!
 
 ## Description
-Discover whats in your top five! Create your own profile, make a top 5 list of your favorite based on your ownb personal choices, read other's lists, follow people, and connect!
+Discover whats in your Top-5! Create your own profile, make a top 5 list of your favorite based on your own personal choices, read others' lists, and connect!
 
 
 ## Contributors
@@ -21,13 +21,15 @@ Javascript
 Node
 Handlebars
 Bootstrap
+Pug.js
+Bcrypt
 ```
 ## Usage
-describe usage here
+
+Create an account, Log in, and post your favorite lists of your Top-5 among friends!
 ## Links
 
-https://jhurst16.github.io/
+Heroku Deployed Application: https://top-5-list.herokuapp.com/
 
-https://github.com/jhurst16/
-
+GitHub Repository: https://github.com/Vandy-Bootcamp-P2/Top-5
 ## Screenshot
