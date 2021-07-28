@@ -121,29 +121,26 @@ function getPostFieldAny(event) {
 function createPostHtml(postData) {
     console.log(postData)
     return `
-    <div class="postFormContainer full-width">
-        <div class="textareaContainer">
-            <div class="card">
-                <div class="card-body">
-                    <p rows="1">${postData.title}</p>
-                </div>    
-                <div class="d-flex flex-column align-items-center">            
-                <p> @${postData.user.username}</p>
-                <img src=${"/images/profilePic.png"} alt="Profile Picture", style="width:100px;height:100px;border-radius:50%;">
-                </div>
-            <div class="card-body">
-                <p id="postCaption" rows="1">${postData.caption}</p>
-                <div class="md-form">
-                    <p id="postField1" rows="1">1: ${postData.field1}</p>
-                    <p id="postField2" rows="1">2: ${postData.field2}</p>
-                    <p id="postField3" rows="1">3: ${postData.field3}</p>
-                    <p id="postField4" rows="1">4: ${postData.field4}</p>
-                    <p id="postField5" rows="1">5: ${postData.field5}</p>
+    <div class="postFormContainer">
+            <div class="card mt-0">
+                <div class="card-body">   
+                        <div class="d-flex flex-column align-items-center">
+                            <p rows="1">${postData.title}</p>            
+                            <p> @${postData.user.username}</p>
+                            <img src=${"/images/profilePic.png"} alt="Profile Picture", style="width:100px;height:100px;border-radius:50%;">
+                            <p id="postCaption" rows="1">${postData.caption}</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item" id="postField1" rows="1">1: ${postData.field1}</li>
+                            <li class="list-group-item" id="postField2" rows="1">2: ${postData.field2}</li>
+                            <li class="list-group-item" id="postField3" rows="1">3: ${postData.field3}</li>
+                            <li class="list-group-item" id="postField4" rows="1">4: ${postData.field4}</li>
+                            <li class="list-group-item" id="postField5" rows="1">5: ${postData.field5}</li>
+                        </ul>
                 </div>
             </div>
         </div>
     </div>
-</div>
 `
 }
 

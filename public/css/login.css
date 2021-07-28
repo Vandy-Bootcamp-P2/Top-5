@@ -57,9 +57,9 @@
     cursor: pointer;
 }
 
-.mainPadding {
-    padding-bottom: 112px;
-    padding-top: 72px;
+.main-margin {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .errorText {
