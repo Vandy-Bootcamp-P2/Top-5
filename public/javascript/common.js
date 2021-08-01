@@ -1,6 +1,3 @@
-const { response } = require("express");
-const { increment } = require("../../models/User");
-const { post } = require("../../routes/api/postRoutes");
 // enable submit button when use enters text
 $(".list-group").keyup(() => {
     var postFieldAny = $(event.target);
@@ -35,16 +32,18 @@ $("#submitPostButton").click((event) => {
     }
     //creating the top 5 list and inserting it into the html
     $.post("/api/postRoutes", data, postData => {
-        var html = createPostHtml(postData);
-        $(".postsContainer").prepend(html);
-        postCategory.val("");
-        postCaption.val("");
-        postField1.val("");
-        postField2.val("");
-        postField3.val("");
-        postField4.val("");
-        postField5.val("");
-        button.prop("disabled", true);
+        console.log(data);
+        // var html = createPostHtml(postData);
+        // $(".postsContainer").prepend(html);
+        // postCategory.val("");
+        // postCaption.val("");
+        // postField1.val("");
+        // postField2.val("");
+        // postField3.val("");
+        // postField4.val("");
+        // postField5.val("");
+        // button.prop("disabled", true);
+        location.reload()
     })
 })
 //function for clicking the like button, and getting the dynamic response
@@ -120,46 +119,43 @@ function getPostFieldAny(event) {
 };
 //will print the post to the screen
 function createPostHtml(postData) {
+    console.log(postData)
     return `
     <div class="postFormContainer">
-    <div class="textareaContainer">
-        <div class="card">
-            <div class="card-body">
-                <p rows="1">${postData.title}</p>
-            </div>
-            <div class="d-flex justify-content-around">
-                <img src=${userLoggedIn.profilePic} alt="Profile Picture">
-                <p> @${userLoggedIn.username}</p>
-            </div>
-            <div class="card-body">
-                <p id="postCaption" rows="1">${postData.caption}</p>
-                <div class="md-form">
-                    <p id="postField1" rows="1">1: ${postData.field1}</p>
-                    <p id="postField2" rows="1">2: ${postData.field2}</p>
-                    <p id="postField3" rows="1">3: ${postData.field3}</p>
-                    <p id="postField4" rows="1">4: ${postData.field4}</p>
-                    <p id="postField5" rows="1">5: ${postData.field5}</p>
-                    <button class="likeButton" ${postData.likes} 👍>
-                    
+            <div class="card mt-0">
+                <div class="card-body">   
+                        <div class="d-flex flex-column align-items-center">
+                            <p rows="1">${postData.title}</p>            
+                            <p> @${postData.user.username}</p>
+                            <img src=${"/images/profilePic.png"} alt="Profile Picture", style="width:100px;height:100px;border-radius:50%;">
+                            <p id="postCaption" rows="1">${postData.caption}</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item" id="postField1" rows="1">1: ${postData.field1}</li>
+                            <li class="list-group-item" id="postField2" rows="1">2: ${postData.field2}</li>
+                            <li class="list-group-item" id="postField3" rows="1">3: ${postData.field3}</li>
+                            <li class="list-group-item" id="postField4" rows="1">4: ${postData.field4}</li>
+                            <li class="list-group-item" id="postField5" rows="1">5: ${postData.field5}</li>
+                        </ul>
                 </div>
-            </div>
-            <div class="card-footer">
-                <a class="card-link" href="https://www.youtube.com/watch?v=PjLw1E7tTuc" target="_blank">Link To Video</a>
             </div>
         </div>
     </div>
-</div>
 `
 }
-// function createLeaderboard(postData) {
-//     return ` 
-//                 <a href="http://localhost:3001/leaderboard/${postData.title}">${postData.title}</a>
-//                 <br>
-//     `
-// }
-// function createLeaderboardCategory(postData) {
-//     return ` 
-//                 <p>${postData.title}</p>
-//                 <br>
-//     `
-// }
+
+function createLeaderboard(postData) {
+    return ` 
+        <div class="d-grid gap-2 d-flex flex-column">
+            <a href="https://top-5-list.herokuapp.com/leaderboard/${postData.title}" type="button" class="btn btn-outline-primary">${postData.title}</a>
+        </div>
+    `
+}
+
+function createLeaderboardCategory(result) {
+
+    return ` 
+                <p>${result}</p>
+
+    `
+}

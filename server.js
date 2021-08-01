@@ -29,6 +29,7 @@ const leaderboardRoute = require('./routes/leaderboardRoutes');
 
 // API routes
 const postRouteApi = require('./routes/api/postRoutes');
+const leaderboardRouteApi = require('./routes/api/leaderboardRoutes');
 
 app.set('view engine', 'pug');
 app.set('views', 'views');
@@ -45,6 +46,7 @@ app.use('/register', registerRoute);
 app.use('/leaderboard', leaderboardRoute);
 
 app.use('/api/postRoutes', postRouteApi);
+app.use('/api/leaderboardRoutes', leaderboardRouteApi);
 
 
 

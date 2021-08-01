@@ -3,24 +3,23 @@ const router = express.Router();
 const sequelize = require('../../config/connection');
 const middleware = require('../../middleware');
 
-const User = require('../../models/User.js');
-const Post = require('../../models/Post.js');
+const db = require('../../models')
 
 router.get('/', (req, res) => {
-    Post.findAll({
-        order: sequelize.literal('createdAt DESC')
+    db.Post.findAll({
+        order: sequelize.literal('createdAt DESC'),
+        include: [db.User]
     })
-    .then((results) => {
-        res.status(200).send(results)
-    })
-    .catch(err => {
-        console.log(err);
-        res.sendStatus(500);
-    })
+        .then((results) => {
+            res.status(200).send(results)
+        })
+        .catch(err => {
+            console.log(err);
+            res.sendStatus(500);
+        })
 })
 
 router.post('/', (req, res, next) => {
-    console.log(req.body);
     if (!req.body) {
         console.log("no content in request");
         return res.sendStatus(400);
@@ -37,16 +36,18 @@ router.post('/', (req, res, next) => {
         user_id: req.session.user.id
     }
 
+    console.log(postData)
 
-    Post.create(postData)
-    .then(newPost => {
-        res.status(200).send(newPost);
-    })
-    .catch(err => {
-        console.log(err);
-        res.sendStatus(500);
-    })
+    db.Post.create(postData)
+        .then(newPost => {
+            res.status(200).send(newPost);
+        })
+        .catch(err => {
+            console.log(err);
+            res.sendStatus(500);
+        })
 })
+
 
 // router.put('/:id/likes', async (req, res, next) => {
 //     let postId = req.params.id;

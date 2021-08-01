@@ -3,26 +3,23 @@ mixin createPostForm(userLoggedIn)
         .textareaContainer
             .card
                 .card-body
-                    textarea#postCategory.md-textarea.form-control(rows='1' placeholder='"Waffles"')
-                .d-flex.justify-content-around
-                    label(for='postCategory') Top 5: 
-                    img(src=userLoggedIn.profilePic, alt="Profile Picture")
-                    p @#{userLoggedIn.username}
-                .card-body
-                    .list-group.list-group-flush
-                                textarea#postCaption.md-textarea.form-control(rows='1' placeholder='Write about your top picks here!')
-                                label(for='postCategory')
-                                .md-form
-                                    textarea#postField1.md-textarea.form-control(rows='1' placeholder='1st Place')
-                                    label(for='postField')
-                                    textarea#postField2.md-textarea.form-control(rows='1' placeholder='2nd Place')
-                                    label(for='postField')
-                                    textarea#postField3.md-textarea.form-control(rows='1' placeholder='3rd Place')
-                                    label(for='postField')
-                                    textarea#postField4.md-textarea.form-control(rows='1' placeholder='4th Place')
-                                    label(for='postField')
-                                    textarea#postField5.md-textarea.form-control(rows='1' placeholder='5th Place')
-                                    label(for='postField')
-                .card-footer
-                            a.card-link(href='https://www.youtube.com/watch?v=PjLw1E7tTuc' target="_blank") Link a Video or Whatever
-        input.btn.btn-primary#submitPostButton(type='submit' value='Submit' disabled='')
+                        textarea#postCategory.md-textarea.form-control(rows='1' placeholder='"Waffles"')
+                        .d-flex.flex-column.justify-content-around.align-items-center 
+                            img(src="/images/profilePic.png", alt="Profile Picture", style="width:100px;height:100px;border-radius:50%;")
+                            p @#{userLoggedIn.username}
+                        .list-group.list-group-flush
+                                        textarea#postCaption.md-textarea.form-control(rows='1' placeholder='Write about your top picks here!')
+                                        label(for='postCategory')
+                                        .md-form
+                                            textarea#postField1.md-textarea.form-control(rows='1' placeholder='1st Place')
+                                            label(for='postField')
+                                            textarea#postField2.md-textarea.form-control(rows='1' placeholder='2nd Place')
+                                            label(for='postField')
+                                            textarea#postField3.md-textarea.form-control(rows='1' placeholder='3rd Place')
+                                            label(for='postField')
+                                            textarea#postField4.md-textarea.form-control(rows='1' placeholder='4th Place')
+                                            label(for='postField')
+                                            textarea#postField5.md-textarea.form-control(rows='1' placeholder='5th Place')
+                                            label(for='postField')
+                        .d-flex.justify-content-center
+                            input.btn.btn-primary#submitPostButton(type='submit' value='Submit' disabled='')

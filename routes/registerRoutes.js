@@ -17,10 +17,7 @@ router.post('/', async (req, res, next) => {
 
     if(firstName && lastName && username && email && password) {
         var user = await User.findOne({
-            $or: [
-                { username: username },
-                { email: email }
-            ]
+                where: {username: username }
         })
         .catch((err) => {
             console.log(err);
