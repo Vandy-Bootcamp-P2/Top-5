@@ -137,6 +137,13 @@ function createPostHtml(postData) {
                             <li class="list-group-item" id="postField4" rows="1">4: ${postData.field4}</li>
                             <li class="list-group-item" id="postField5" rows="1">5: ${postData.field5}</li>
                         </ul>
+                        <div class="card-footer">
+                            <div class="postFormContainer">
+                                <button data-toggle="modal" data-target="#replyModal">
+                                    <i class="far fa-comment></i>
+                                </button>
+                            </div>
+                        </div>    
                 </div>
             </div>
         </div>

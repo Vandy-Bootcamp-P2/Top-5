@@ -23,3 +23,17 @@ mixin createPostForm(userLoggedIn)
                                             label(for='postField')
                         .d-flex.justify-content-center
                             input.btn.btn-primary#submitPostButton(type='submit' value='Submit' disabled='')
+
+mixin createReplyModal(userLoggedIn)
+#replyModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='replyModalLabel', aria-hidden='true')
+  .modal-dialog(role='document')
+      .modal-content
+      .modal-header
+        h5#replyeModalLabel.modal-title Reply
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') &times;
+      .modal-body
+        | ...
+      .modal-footer
+        button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+        button#submitReplyButton.btn.btn-primary(type='button', disabled="") Reply 
