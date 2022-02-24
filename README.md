@@ -33,3 +33,4 @@ Heroku Deployed Application: https://top-5-list.herokuapp.com/
 
 GitHub Repository: https://github.com/Vandy-Bootcamp-P2/Top-5
 ## Screenshot
+![Screenshot (83)](https://user-images.githubusercontent.com/81343536/155593572-56dc6b70-5fda-4f06-9c7b-eca689756aed.png)
